@@ -1,0 +1,14 @@
+StreamForge
+StreamForge Distributed Event Streaming Broker
+Copyright 2024–2026 StreamForge contributors
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file.
+
+This product includes software developed by third parties under their respective licenses, including:
+
+- hashicorp/raft — Mozilla Public License 2.0
+- hashicorp/raft-boltdb — Mozilla Public License 2.0
+- prometheus/client_golang — Apache License 2.0
+- klauspost/compress — BSD-3-Clause
+- pierrec/lz4 — BSD-3-Clause

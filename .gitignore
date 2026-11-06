@@ -1,0 +1,5 @@
+bin/
+data/
+*.exe
+*.db
+*.log
