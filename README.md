@@ -5,17 +5,32 @@
 > Product name: **StreamForge**  
 > Full name: **StreamForge Distributed Event Streaming Broker**
 
-## Quick start
+## How to use (quick)
+
+1. **Start** the broker  
+2. **Produce** messages into a topic  
+3. **Consume** messages (optionally with a group)  
+4. **Verify** health + that messages appear  
+
+Full walkthrough with verify steps: **[docs/usage.md](docs/usage.md)**
 
 ```bash
-docker compose -f deployments/docker-compose.yml up --build
+# 1) Start (Docker cluster)
+docker compose -f deployments/docker-compose.yml up --build -d
 
-go run ./cmd/produce -addr 127.0.0.1:9092 -topic orders -partitions 3 -count 100 \
+# 2) Verify broker
+curl http://127.0.0.1:8080/healthz
+# expect: ok
+
+# 3) Produce
+go run ./cmd/produce -addr 127.0.0.1:9092 -topic orders -partitions 3 -count 20 \
   -acks -1 -compression gzip
+
+# 4) Consume (verify you see the messages)
 go run ./cmd/consume -addr 127.0.0.1:9092 -topic orders -group workers
 ```
 
-Single node:
+Single node (no Docker):
 
 ```bash
 go run ./cmd/broker -id broker-1 -listen :9092 -http :8080 -data ./data/broker-1
@@ -48,7 +63,8 @@ Full map: [docs/architecture.md](docs/architecture.md).
 
 ## Docs
 
-- [setup.md](docs/setup.md) — **how to install and run**  
+- [usage.md](docs/usage.md) — **how to use + verify (start here)**  
+- [setup.md](docs/setup.md) — install (Docker / binary / env)  
 - [architecture.md](docs/architecture.md) — enterprise folder layout  
 - [design.md](docs/design.md) — storage, protocol, replication  
 - [production.md](docs/production.md) — acks, TLS, auth, compression  

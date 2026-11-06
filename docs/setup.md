@@ -2,6 +2,8 @@
 
 **StreamForge Distributed Event Streaming Broker** — install, run, and verify.
 
+> After install, follow **[usage.md](usage.md)** for a full “how to use” guide with verify steps.
+
 ## Requirements
 
 | Tool | Version | Notes |
@@ -18,8 +20,8 @@ Supported OS: Linux, macOS, Windows (PowerShell or WSL).
 ## 1. Get the code
 
 ```bash
-git clone <your-repo-url> DISTRIBUTED_SYSTEM
-cd DISTRIBUTED_SYSTEM
+git clone https://github.com/iamsumanmanna/StreamForge-Distributed-Event-Streaming-Broke.git
+cd StreamForge-Distributed-Event-Streaming-Broke
 ```
 
 Download Go modules:
